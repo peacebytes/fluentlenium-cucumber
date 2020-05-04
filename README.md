@@ -29,10 +29,15 @@ To clean install dependencies and compile code without running tests
 mvn clean install -DskipTests=true
 ```
 
-To clean install dependencies and running tests
+To clean install dependencies and running all tests
 ```
 mvn clean test
 ``` 
+
+To run smoke test
+```
+mvn clean test -Dcucumber.options="--tags @Smoke"
+```
 
 ### Run tests in parallel
 There are 3 suggestions for running the same set of test cases in parallel (on different browsers). The goals are trying to use different credential and different test data for each run.
