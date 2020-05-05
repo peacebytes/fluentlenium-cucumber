@@ -1,5 +1,6 @@
 package com.walmart.page;
 
+import static com.walmart.utility.TestData.*;
 import org.fluentlenium.core.domain.FluentList;
 import org.fluentlenium.core.domain.FluentWebElement;
 import org.openqa.selenium.By;
@@ -107,17 +108,17 @@ public class MyAddressPage extends EComBasePage {
     }
 
     //Return false if address is already existed; return true if addition is complete
-    public Boolean addAddress(HashMap<String,String> dataAddress) {
-        Boolean flag = isAddressExisted(dataAddress.get("alias"));
+    public Boolean addAddress(Address dataAddress) {
+        Boolean flag = isAddressExisted(dataAddress.alias);
         if (!flag){
             clickOnElement(addAddressButton);
-            typeOnElement(address1, dataAddress.get("address1"));
-            typeOnElement(city, dataAddress.get("city"));
-            selectOption(id_state, dataAddress.get("state_option"));
-            typeOnElement(postcode, dataAddress.get("postcode"));
-            selectOption(id_country, dataAddress.get("country_option"));
-            typeOnElement(phone, dataAddress.get("phone"));
-            typeOnElement(alias, dataAddress.get("alias"));
+            typeOnElement(address1, dataAddress.address1);
+            typeOnElement(city, dataAddress.city);
+            selectOption(id_state, dataAddress.state);
+            typeOnElement(postcode, dataAddress.postcode);
+            selectOption(id_country, dataAddress.country);
+            typeOnElement(phone, dataAddress.phone);
+            typeOnElement(alias, dataAddress.alias);
             clickOnElement(submitAddressButton);
         }
         return !flag;

@@ -1,0 +1,61 @@
+
+[
+  {
+    "testid": 0,
+    "creds":
+    {
+      "username": "automationqa@test.com",
+      "password": "Pass1234"
+    },
+    "addresses":
+    [
+      {
+        "address1": "Test11 Address",
+        "city": "city Test1",
+        "state": "Washington",
+        "postcode": "02123",
+        "country": "United States",
+        "phone": "3424443333",
+        "alias": "Test11"
+      },
+      {
+        "address1": "Test12 Address",
+        "city": "city Test2",
+        "state": "Washington",
+        "postcode": "02123",
+        "country": "United States",
+        "phone": "3424443333",
+        "alias": "Tes12"
+      }
+    ]
+  },
+  {
+    "testid": 1,
+    "creds":
+    {
+      "username": "automationqa2@test.com",
+      "password": "Pass1234"
+    },
+    "addresses":
+    [
+      {
+        "address1": "Test21 Address",
+        "city": "city Test1",
+        "state": "Washington",
+        "postcode": "02123",
+        "country": "United States",
+        "phone": "3424443333",
+        "alias": "Test21"
+      },
+      {
+        "address1": "Test22 Address",
+        "city": "city Test2",
+        "state": "Washington",
+        "postcode": "02123",
+        "country": "United States",
+        "phone": "3424443333",
+        "alias": "Test22"
+      }
+    ]
+  }
+]

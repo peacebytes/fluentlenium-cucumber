@@ -1,6 +1,7 @@
 package com.walmart.stepdefinitions;
 
 import com.google.common.base.Strings;
+import static com.walmart.utility.TestData.*;
 import cucumber.api.java.en.Then;
 import org.fluentlenium.adapter.cucumber.FluentCucumberTest;
 import static com.walmart.stepdefinitions.FluentHooks.*;
@@ -28,18 +29,18 @@ public class MyAddressSteps extends FluentCucumberTest {
 
     @Then("I add an address from test data")
     public void i_add_an_address() {
-        if (myAddressPage.addAddress(dataAddress)){
+        if (myAddressPage.addAddress(testData.addresses.get(0))){
             //Verify adding address works as expected
-            assert(myAddressPage.isAddressExisted(dataAddress.get("alias")));
+            assert(myAddressPage.isAddressExisted(testData.addresses.get(0).alias));
         }
     }
 
     @Then("I add all addresses from test data")
     public void i_add_all_address() {
-        for (HashMap<String,String> dataAddress: addresses){
+        for (Address dataAddress: testData.addresses){
             if (myAddressPage.addAddress(dataAddress)){
                 //Verify adding address works as expected
-                assert(myAddressPage.isAddressExisted(dataAddress.get("alias")));
+                assert(myAddressPage.isAddressExisted(dataAddress.alias));
             }
         }
     }

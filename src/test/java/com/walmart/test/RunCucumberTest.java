@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "classpath:features",
         glue = "com.walmart.stepdefinitions",
         strict = true,
-        plugin = {"pretty", "html:target/cucumber", "json:target/cucumber.json"},
+        plugin = {"html:target/cucumber", "json:target/cucumber.json"},
         tags = {"~@skip"}
 )
 public class RunCucumberTest {
