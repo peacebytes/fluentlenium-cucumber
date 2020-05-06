@@ -8,8 +8,8 @@ This is a Web UI automation test framework. The goal is to run automatic end-to-
 ### Build With
 
 The framework was built on:
-- Web and Mobile automation framework: FluentLenium
-- Test Runner Framework: Cucumber
+- FluentLenium Core and Cucumber: 3.3.0
+- Cucumber core, junit, java: 1.2.5
 - Language: Java
 - Build tool: Apache Maven
 
@@ -17,8 +17,10 @@ The framework was built on:
 
 Install the following tools:
 - Java Development Kit: 1.8 or later.
-- FluentLenium Core and Cucumber: 3.3.0
-- Cucumber core, junit, java: 1.2.5
+- WebDriver for Chrome, Firefox, IE, ...
+http://chromedriver.chromium.org/downloads
+https://github.com/mozilla/geckodriver/releases
+https://selenium-release.storage.googleapis.com/3.150/IEDriverServer_Win32_3.150.1.zip
 
 ### Usage
 
@@ -45,6 +47,8 @@ Solution 2: Starting test in serial, one after another. Data/Creds are defined u
 
 Solution 3: Running multiple runners, those runners will pick up test features from resources/features. Runners will have its own JVM processe with a WebDriver and a set of data/creds. All JVM processes will connect to a persistence-database to pick up a test id which is available.
 Read more here: https://maven.apache.org/surefire/maven-surefire-plugin/examples/fork-options-and-parallel-execution.html
+
+This starter kit implements solution 3.
 
 To run multiple runners
 ```
@@ -77,9 +81,8 @@ Connect to Mysql database
 mysql -h 127.0.0.1 -u root -p
 ```
 
-Create a table
+Create a database then a table
 ```
-use fluentlenium_cucumber;
 CREATE DATABASE fluentlenium_cucumber;
 USE fluentlenium_cucumber;
 CREATE TABLE IF NOT EXISTS test_ids (
