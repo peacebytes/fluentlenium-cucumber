@@ -1,10 +1,8 @@
-package com.walmart.page;
+package com.ecommerce.page;
 
 import org.fluentlenium.core.annotation.PageUrl;
 import org.fluentlenium.core.domain.FluentWebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.concurrent.TimeUnit;
 
 @PageUrl("/index.php?controller=authentication&back=my-account")
 public class LoginPage extends EComBasePage {

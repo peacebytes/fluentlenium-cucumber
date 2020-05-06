@@ -1,12 +1,10 @@
-package com.walmart.page;
+package com.ecommerce.page;
 
-import static com.walmart.utility.TestData.*;
+import static com.ecommerce.utility.TestData.*;
 import org.fluentlenium.core.domain.FluentList;
 import org.fluentlenium.core.domain.FluentWebElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.HashMap;
 
 import static org.fluentlenium.core.filter.FilterConstructor.withText;
 

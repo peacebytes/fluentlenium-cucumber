@@ -1,4 +1,4 @@
-package com.walmart.section;
+package com.ecommerce.section;
 
 import org.fluentlenium.core.FluentControl;
 import org.fluentlenium.core.components.ComponentInstantiator;

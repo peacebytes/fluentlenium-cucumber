@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.walmart</groupId>
-    <artifactId>webautomation</artifactId>
+    <groupId>com.ecommerce</groupId>
+    <artifactId>ecommerce-web-automation</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -77,7 +77,7 @@
                                     <goal>generateRunners</goal>
                                 </goals>
                                 <configuration>
-                                    <glue>com.walmart.stepdefinitions</glue>
+                                    <glue>com.ecommerce.stepdefinitions</glue>
                                     <featuresDirectory>src/test/resources/features</featuresDirectory>
                                     <cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir>
                                     <format>json,html</format>

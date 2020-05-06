@@ -64,6 +64,13 @@ Number of runners will be set by
 By default, maven has surefire plugin to help us run tests out of the box. Exploring surefire-report for `index.html` file to see the report.
 
 ### Database
+
+UBUNTU
+Start container
+```
+docker container run -d --name mysql -e MYSQL_RANDOM_ROOT_PASSWORD=yes -e MYSQL_DATABASE=fluentcucumber -e MYSQL_USER=root -e MYSQL_PASSWORD=pass1234 --publish 3306:3306 mysql:5.7
+```
+WINS
 Mysql 5.7.10 (root/pass1234)
 username: fluentcucumber
 password: pass1234

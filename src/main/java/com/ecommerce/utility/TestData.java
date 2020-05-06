@@ -1,4 +1,4 @@
-package com.walmart.utility;
+package com.ecommerce.utility;
 
 import java.util.ArrayList;
 import java.util.List;

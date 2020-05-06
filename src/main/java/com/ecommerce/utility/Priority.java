@@ -1,4 +1,4 @@
-package com.walmart.utility;
+package com.ecommerce.utility;
 
 public interface Priority {
     public static final int HIGH = -10;

@@ -1,19 +1,15 @@
-package com.walmart.stepdefinitions;
+package com.ecommerce.stepdefinitions;
 
-import com.walmart.page.*;
-import com.walmart.utility.JsonUtil;
-import com.walmart.utility.MySqlUtil;
-import com.walmart.utility.TestData;
+import com.ecommerce.page.*;
+import com.ecommerce.utility.JsonUtil;
+import com.ecommerce.utility.MySqlUtil;
+import com.ecommerce.utility.TestData;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import cucumber.runtime.model.CucumberBackground;
-import cucumber.runtime.model.CucumberScenario;
 
 import java.util.Arrays;
-import java.util.Hashtable;
 import java.util.List;
-import java.util.Random;
 
 public class FluentHooks extends BaseTest {
 
@@ -29,6 +25,13 @@ public class FluentHooks extends BaseTest {
     @Before
     public void beforeScenario(Scenario scenario){
         System.out.println("Called before scenario :" + scenario.getName());
+        System.out.println("scenario.getClass();:" + scenario.getClass());
+        synchronized (scenario) {
+            System.out.println("inside synchronized" );
+            currentTestId = MySqlUtil.getAvailableTestId();
+            MySqlUtil.updateTestId(currentTestId, "running");
+            System.out.println("inside synchronized currentTestId " + currentTestId );
+        }
         long mili = System.currentTimeMillis();
         currentTestId = (int)(mili % browsers.size());
         before(scenario);
@@ -36,7 +39,6 @@ public class FluentHooks extends BaseTest {
         myAccountPage = newInstance(MyAccountPage.class);
         myAddressPage = newInstance(MyAddressPage.class);
         window().maximize();
-        System.out.println("===> Running with test data of " + currentTestId + " on browser " + getWebDriver());
         testData = JsonUtil.loadTestData(currentTestId);
     }
 

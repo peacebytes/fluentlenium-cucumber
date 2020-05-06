@@ -1,4 +1,4 @@
-package com.walmart.page;
+package com.ecommerce.page;
 
 import org.fluentlenium.core.domain.FluentWebElement;
 import org.openqa.selenium.support.FindBy;

@@ -1,9 +1,9 @@
-package com.walmart.stepdefinitions;
+package com.ecommerce.stepdefinitions;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.fluentlenium.adapter.cucumber.FluentCucumberTest;
-import static com.walmart.stepdefinitions.FluentHooks.*;
+import static com.ecommerce.stepdefinitions.FluentHooks.*;
 
 public class MyAccountSteps extends FluentCucumberTest {
 

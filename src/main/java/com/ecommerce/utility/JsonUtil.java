@@ -1,4 +1,4 @@
-package com.walmart.utility;
+package com.ecommerce.utility;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;

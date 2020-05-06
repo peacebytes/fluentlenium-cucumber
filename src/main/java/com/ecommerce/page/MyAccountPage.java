@@ -1,10 +1,11 @@
-package com.walmart.page;
+package com.ecommerce.page;
 
 import org.fluentlenium.core.domain.FluentList;
 import org.fluentlenium.core.domain.FluentWebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class MyAccountPage extends EComBasePage {
+
     @FindBy(css="p.info-account")
     public FluentWebElement myaccountWelcome;
 

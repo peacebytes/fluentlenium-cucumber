@@ -1,4 +1,4 @@
-package com.walmart.utility;
+package com.ecommerce.utility;
 
 public interface MyTimeOut {
     public static final int LARGE_TIME_OUT = 10000; //MILLISECONDS

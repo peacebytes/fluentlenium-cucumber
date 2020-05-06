@@ -1,4 +1,4 @@
-package com.walmart.test;
+package com.ecommerce.test;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;

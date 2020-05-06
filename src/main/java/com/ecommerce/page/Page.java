@@ -1,14 +1,9 @@
-package com.walmart.page;
+package com.ecommerce.page;
 
 import org.fluentlenium.core.FluentPage;
 import org.fluentlenium.core.domain.FluentWebElement;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
 import java.util.concurrent.TimeUnit;
-
-import static com.walmart.utility.MyTimeOut.*;
+import static com.ecommerce.utility.MyTimeOut.*;
 
 public abstract class Page extends FluentPage {
 

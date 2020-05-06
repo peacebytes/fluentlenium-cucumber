@@ -1,9 +1,9 @@
-package com.walmart.stepdefinitions;
+package com.ecommerce.stepdefinitions;
 
 import cucumber.api.java.en.Given;
 import org.fluentlenium.adapter.cucumber.FluentCucumberTest;
 import static org.junit.Assert.assertEquals;
-import static com.walmart.stepdefinitions.FluentHooks.*;
+import static com.ecommerce.stepdefinitions.FluentHooks.*;
 import static org.junit.Assert.assertTrue;
 
 public class LoginSteps extends FluentCucumberTest {

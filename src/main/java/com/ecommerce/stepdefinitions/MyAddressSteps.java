@@ -1,12 +1,10 @@
-package com.walmart.stepdefinitions;
+package com.ecommerce.stepdefinitions;
 
 import com.google.common.base.Strings;
-import static com.walmart.utility.TestData.*;
+import static com.ecommerce.utility.TestData.*;
 import cucumber.api.java.en.Then;
 import org.fluentlenium.adapter.cucumber.FluentCucumberTest;
-import static com.walmart.stepdefinitions.FluentHooks.*;
-
-import java.util.HashMap;
+import static com.ecommerce.stepdefinitions.FluentHooks.*;
 
 public class MyAddressSteps extends FluentCucumberTest {
 

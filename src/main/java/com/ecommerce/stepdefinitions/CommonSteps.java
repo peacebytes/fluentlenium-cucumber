@@ -1,10 +1,10 @@
-package com.walmart.stepdefinitions;
+package com.ecommerce.stepdefinitions;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.fluentlenium.adapter.cucumber.FluentCucumberTest;
 import static org.junit.Assert.assertEquals;
-import static com.walmart.stepdefinitions.FluentHooks.*;
+import static com.ecommerce.stepdefinitions.FluentHooks.*;
 
 public class CommonSteps extends FluentCucumberTest {
 
