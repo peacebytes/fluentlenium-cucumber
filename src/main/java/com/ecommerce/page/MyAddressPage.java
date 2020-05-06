@@ -57,7 +57,6 @@ public class MyAddressPage extends EComBasePage {
         Boolean flag = Boolean.FALSE;
         for (FluentWebElement webEle : addressesList()) {
             String addressDetails = getAddressDetails(webEle).first().text().toLowerCase();
-            System.out.println("seeing: " + addressDetails);
             if (addressDetails.equals(addressName.toLowerCase())) {
                 flag = Boolean.TRUE;
             }
@@ -71,7 +70,6 @@ public class MyAddressPage extends EComBasePage {
         for (FluentWebElement webEle : addressesList()) {
             FluentList<FluentWebElement> addressDetails = getAddressDetails(webEle);
             String foundAddressName = addressDetails.first().text().toLowerCase();
-            System.out.println("should I delete: " + foundAddressName);
             if (foundAddressName.toLowerCase().equals(addressName.toLowerCase())) {
                 FluentWebElement btnDelete = getDeleteButton(addressDetails.get(addressDetails.size()-1));
                 clickOnElement(btnDelete);

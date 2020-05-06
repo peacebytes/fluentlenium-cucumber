@@ -92,6 +92,7 @@
                         <configuration>
                             <forkCount>2</forkCount>
                             <reuseForks>false</reuseForks>
+                            <testFailureIgnore>true</testFailureIgnore>
                             <includes>
                                 <include>**/Parallel*IT.class</include>
                             </includes>

@@ -26,12 +26,10 @@ To clean install dependencies and compile code without running tests
 ```
 mvn clean install -DskipTests=true
 ```
-
 To clean install dependencies and running all tests
 ```
 mvn clean test
 ``` 
-
 To run smoke test
 ```
 mvn clean test -Dcucumber.options="--tags @Smoke"
@@ -58,22 +56,17 @@ Number of runners will be set by
 <forkCount>2</forkCount>
 ```
 
-
 ### Report
 
 By default, maven has surefire plugin to help us run tests out of the box. Exploring surefire-report for `index.html` file to see the report.
 
 ### Database
 
-UBUNTU
-Start container
+For Ubuntu, start a docker container
 ```
-docker container run -d --name mysql -e MYSQL_RANDOM_ROOT_PASSWORD=yes -e MYSQL_DATABASE=fluentcucumber -e MYSQL_USER=root -e MYSQL_PASSWORD=pass1234 --publish 3306:3306 mysql:5.7
+docker container run -d --name mysql -e MYSQL_RANDOM_ROOT_PASSWORD=yes -e MYSQL_DATABASE=fluentlenium_cucumber -e MYSQL_USER=root -e MYSQL_PASSWORD=pass1234 --publish 3306:3306 mysql:5.7
 ```
-WINS
-Mysql 5.7.10 (root/pass1234)
-username: fluentcucumber
-password: pass1234
+For Windows, download mysql 5.7 server from https://dev.mysql.com/downloads/mysql/5.7.html
 
 Connect to Mysql database
 ```
@@ -82,6 +75,7 @@ mysql -h 127.0.0.1 -u root -p
 
 Create database and table
 ```
+use fluentlenium_cucumber;
 CREATE DATABASE fluentlenium_cucumber;
 USE fluentlenium_cucumber;
 CREATE TABLE IF NOT EXISTS test_ids (
@@ -96,20 +90,19 @@ INSERT into test_ids value (1,"available");
 INSERT into test_ids value (2,"available");
 ```
 
-Trouble shooting
+Parallel test running will have multiple JVM runners connect to DB at the same time. Allow only 1 connection to database to prevent race-condition from happening.
 ```
-use fluentlenium_cucumber;
-INSERT into test_ids value (3,"available");
-UPDATE test_ids SET test_status="available" WHERE test_id=1;
-select * from test_ids;
-
-show databases;
 use mysql;
-show tables;
 SELECT MAX_USER_CONNECTIONS FROM user WHERE user='root';
 ALTER USER 'root'@'localhost' WITH MAX_USER_CONNECTIONS 0;
 ```
-
+Trouble shooting commands.
+```
+use fluentlenium_cucumber;
+INSERT into test_ids value (1,"available");
+UPDATE test_ids SET test_status="available" WHERE test_id=1;
+select * from test_ids;
+```
 ### Contact
 
-Michael Ho - @michaelho
+Michael Ho - Gmail: hogiamisan@gmail.com
