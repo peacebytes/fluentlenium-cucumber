@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "classpath:features",
-        glue = "com.walmart.stepdefinitions",
+        glue = "com.ecommerce.stepdefinitions",
         strict = true,
         plugin = {"html:target/cucumber", "json:target/cucumber.json"},
         tags = {"~@skip"}
