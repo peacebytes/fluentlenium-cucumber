@@ -1,15 +1,15 @@
 # FluentLenium Cucumber
 
 
-### What is this project?
+### What is this for?
 
-This is a Web UI automation test framework. The goal is to run automatic tests to ensure http://automationpractice.com web page works as expected on local environment.
+This is a Web UI automation test framework. The goal is to run automatic end-to-end tests against http://automationpractice.com.
 
 ### Build With
 
 The framework was built on:
 - Web and Mobile automation framework: FluentLenium
-- Test Framework: Cucumber
+- Test Runner Framework: Cucumber
 - Language: Java
 - Build tool: Apache Maven
 
@@ -17,8 +17,8 @@ The framework was built on:
 
 Install the following tools:
 - Java Development Kit: 1.8 or later.
-- Apache maven: suggested 3.3.1 to compatible with Java 7 or later.
 - FluentLenium Core and Cucumber: 3.3.0
+- Cucumber core, junit, java: 1.2.5
 
 ### Usage
 
@@ -39,12 +39,12 @@ mvn clean test -Dcucumber.options="--tags @Smoke"
 
 There are 3 suggestions for running the same set of test cases in parallel (on different browsers). The goals are trying to use different credential and different test data for each run.
 
-Solution 1: Starting test in serial, one after another. Everything is generated on-the-fly. No control on data/creds.
-Starting the test with registration a new creds. Test data will also be randomly generated where needed.
+Solution 1: Starting test in serial, one after another. Everything is generated on-the-fly. No control on data/creds. Starting the test with a brand new credential registration. Test data will also be randomly generated where needed.
 
 Solution 2: Starting test in serial, one after another. Data/Creds are defined up-front. Each test will consume a test id which decide its creds and data.
 
-Solution 3: Running multiple runners, those runners will pick up test features from resources/features. Runners will have its own thread with a WebDriver and a set of data/creds. When a runner finishes a test feature file, it will continue to pick up another feature file to run (because <reuseForks>true</reuseForks>). Each runner will connect to a persistence-database to confirm it has picked up a test id and test id can't be selected by other runners.
+Solution 3: Running multiple runners, those runners will pick up test features from resources/features. Runners will have its own JVM processe with a WebDriver and a set of data/creds. All JVM processes will connect to a persistence-database to pick up a test id which is available.
+Read more here: https://maven.apache.org/surefire/maven-surefire-plugin/examples/fork-options-and-parallel-execution.html
 
 To run multiple runners
 ```
@@ -58,7 +58,11 @@ Number of runners will be set by
 
 ### Report
 
-By default, maven has surefire plugin to help us run tests out of the box. Exploring surefire-report for `index.html` file to see the report.
+Exploring target/surefire-report or target/cucumber-report for `index.html` file to see some simple reports.
+
+To do:
+- Integrate with Allure
+- Integrate with Serenity (Live Documentation)
 
 ### Database
 
@@ -73,7 +77,7 @@ Connect to Mysql database
 mysql -h 127.0.0.1 -u root -p
 ```
 
-Create database and table
+Create a table
 ```
 use fluentlenium_cucumber;
 CREATE DATABASE fluentlenium_cucumber;
@@ -94,8 +98,9 @@ Parallel test running will have multiple JVM runners connect to DB at the same t
 ```
 use mysql;
 SELECT MAX_USER_CONNECTIONS FROM user WHERE user='root';
-ALTER USER 'root'@'localhost' WITH MAX_USER_CONNECTIONS 0;
+ALTER USER 'root'@'localhost' WITH MAX_USER_CONNECTIONS 1;
 ```
+
 Trouble shooting commands.
 ```
 use fluentlenium_cucumber;
@@ -103,6 +108,7 @@ INSERT into test_ids value (1,"available");
 UPDATE test_ids SET test_status="available" WHERE test_id=1;
 select * from test_ids;
 ```
+
 ### Contact
 
 Michael Ho - Gmail: hogiamisan@gmail.com
