@@ -111,7 +111,3 @@ INSERT into test_ids value (1,"available");
 UPDATE test_ids SET test_status="available" WHERE test_id=1;
 select * from test_ids;
 ```
-
-### Contact
-
-Michael Ho - Gmail: hogiamisan@gmail.com
